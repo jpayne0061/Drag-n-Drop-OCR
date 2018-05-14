@@ -114,13 +114,17 @@
         }
 
         $("#submit-url").on("click", function () {
-            var api_call = "https://api.ocr.space/parse/imageurl?apikey=31b8483cda88957&url=" + $("#url-input").val() + "&isOverlayRequired=true";
+            var apiKey = "31b8483cda88957";
+
+            var api_call = "https://api.ocr.space/parse/imageurl?apikey=" + apiKey + "&url=" + $("#url-input").val() + "&isOverlayRequired=true";
 
             getOcrdImage(api_call);
 
         });
 
         function getOcrdImage(api_call) {
+            $('#the-image').attr("src", "https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.webp");
+
             var str = "";
             $.get(api_call, function (data) {
                 console.log("rsults: ", data);
